@@ -1,26 +1,25 @@
-import readlineSync from 'readline-sync';
+// generates game logic for engine
+// see specification of format in comments in engine.js
 
-const greeting = () => {
-    console.log('Welcome to the Brain Games!');
-    // Wait for user's response.
-    var userName = readlineSync.question('May I have your name? ');
-    console.log('Hello, ' + userName + '!');
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
+export default () => {
+    const NUMBER_OF_QUESTIONS = 3;
+    const MAX_VALUE = 10;
+
+    const gameLogic = {};
+    gameLogic.instructions = 'Answer "yes" if the number is even, otherwise answer "no".';
+    const qAndA = [];
     
-    for (let i = 0; i < 3; i += 1) {
-        const num = Math.floor(Math.random() * 10);
-        var trueAnswer = num % 2 === 0 ? 'yes' : 'no';
-        console.log(`Question: ${num}`);
-        var answer = readlineSync.question('Your answer: ');
-        if ((answer === 'yes' && num % 2 === 0) || (answer === 'no' && num % 2 === 1)) {
-            console.log('Correct!');
+    for (let i = 0; i < NUMBER_OF_QUESTIONS; i += 1) {
+        const num = Math.floor(Math.random() * MAX_VALUE);
+        const question = `${num}`;
+        let answer = '';
+        if (num % 2 === 0) {
+            answer = 'yes';
         } else {
-            console.log(`${answer} is wrong answer ;(. Correct answer was ${trueAnswer}`);
-            console.log(`Let's try again, ${userName}`);
-            break;
+            answer = 'no';
         }
+        qAndA.push([question, answer]);
     }
-    console.log(`Congratulations, ${userName}`);
-}
-
-export default greeting;
+    gameLogic.questions_and_answers = qAndA;
+    return gameLogic;
+};
