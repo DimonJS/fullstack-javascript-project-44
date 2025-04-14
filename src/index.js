@@ -7,26 +7,26 @@
 import * as rs from 'readline-sync';
 
 export default (game) => {
-    console.log('Welcome to the Brain Games!');
-    // Wait for user's response.
-    var userName = rs.question('May I have your name? ');
-    console.log('Hello, ' + userName + '!');
-    console.log(game.instructions);
-    for (let i = 0; i < game.questions_and_answers.length; i += 1) {
-        const pair = game.questions_and_answers[i];
-        const question = pair[0];
-        const answer = pair[1];
-        console.log(`Question: ${question}`);
-        let userAnswer = rs.question('Your answer: ');
-        if (Number(userAnswer)) {
-            userAnswer = Number(userAnswer);
-        }
-        if (answer !== userAnswer) {
-            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-            console.log(`Let's try again, ${userName}!`);
-            return;
-        }
-        console.log('Correct!');
+  console.log('Welcome to the Brain Games!');
+  // Wait for user's response.
+  const userName = rs.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log(game.instructions);
+  for (let i = 0; i < game.questions_and_answers.length; i += 1) {
+    const pair = game.questions_and_answers[i];
+    const question = pair[0];
+    const answer = pair[1];
+    console.log(`Question: ${question}`);
+    let userAnswer = rs.question('Your answer: ');
+    if (Number(userAnswer)) {
+      userAnswer = Number(userAnswer);
     }
-    console.log(`Congratulations, ${userName}!`);
+    if (answer !== userAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
+    }
+    console.log('Correct!');
+  }
+  console.log(`Congratulations, ${userName}!`);
 };
