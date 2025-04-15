@@ -8,7 +8,7 @@ export default () => {
   const gameLogic = {};
   gameLogic.instructions = 'What is the result of the expression?';
   const qAndA = [];
-
+    
   const sign = ['+', '-', '*'];
 
   for (let i = 0; i < NUMBER_OF_QUESTIONS; i += 1) {
@@ -17,8 +17,21 @@ export default () => {
     const randomItem = sign[Math.floor(Math.random() * sign.length)];
 
     const question = `${num1} ${randomItem} ${num2}`;
-    const answer = eval(num1 + randomItem + num2);
-    qAndA.push([question, answer]);
+    let answer;
+    switch (randomItem) {
+      case '+':
+        answer = num1 + num2;
+        break;
+      case '-':
+        answer = num1 - num2;
+        break;
+      case '*':
+        answer = num1 * num2;
+        break;
+      default:
+        answer = NaN;
+    }
+    qAndA.push([question, answer]);        
   }
   gameLogic.questions_and_answers = qAndA;
   return gameLogic;

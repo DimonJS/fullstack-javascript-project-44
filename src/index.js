@@ -19,9 +19,9 @@ export default (game) => {
     console.log(`Question: ${question}`);
     let userAnswer = rs.question('Your answer: ');
     if (Number(userAnswer)) {
-      userAnswer = Number(userAnswer);
+      userAnswer = +(userAnswer);
     }
-    if (answer !== userAnswer) {
+    if (answer != userAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
