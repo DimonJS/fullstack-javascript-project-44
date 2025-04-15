@@ -8,7 +8,7 @@ export default () => {
   const gameLogic = {};
   gameLogic.instructions = 'What is the result of the expression?';
   const qAndA = [];
-    
+
   const sign = ['+', '-', '*'];
 
   for (let i = 0; i < NUMBER_OF_QUESTIONS; i += 1) {
@@ -31,7 +31,7 @@ export default () => {
       default:
         answer = NaN;
     }
-    qAndA.push([question, answer]);        
+    qAndA.push([question, answer]);
   }
   gameLogic.questions_and_answers = qAndA;
   return gameLogic;

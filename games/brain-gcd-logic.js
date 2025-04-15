@@ -16,7 +16,7 @@ export default () => {
     let a = num1;
     let b = num2;
 
-    while (a != 0 & b != 0) {
+    while (a !== 0 && b !== 0) {
       if (a > b) { // if a is greater than b, then a is assigned a%b
         a %= b;
       } else {

@@ -11,10 +11,10 @@ export default () => {
 
   for (let i = 0; i < NUMBER_OF_QUESTIONS; i += 1) {
     const num = Math.floor(Math.random() * MAX_VALUE);
-    const isPrime = (num) => {
-      if (num <= 1) return false;
-      for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) return false;
+    const isPrime = (num1) => {
+      if (num1 <= 1) return false;
+      for (let j = 2; j <= Math.sqrt(num1); j += 1) {
+        if (num1 % j === 0) return false;
       }
       return true;
     };
